@@ -1,0 +1,123 @@
+@media (max-width: 600px) {
+    .todos-list {
+        grid-template-columns: 1fr;
+
+    }
+}
+@media (min-width: 601px){
+    .todos-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+.input {
+    display: flex;
+    width: 90%;
+    position: relative;
+    align-items: center;
+}
+
+.input__box {
+    width: 100%;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border: none;
+    transition: 0.2s;
+    box-shadow: inset 0 0 5px black;
+}
+
+.input__box:focus {
+    box-shadow: 0 0 10px 1000px rgba(0,0,0,0.5);
+    outline: none;
+}
+
+.input__btn {
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50px;
+    background: var(--primaryColor);
+    color: white;
+    font-weight: 600;
+    right: 0;
+    margin: 0.5rem;
+    border: none;
+    transition: 0.2s;
+    box-shadow: inset 0 0 10px black;
+    cursor:pointer;
+}
+
+.input__btn:hover {
+    background: #388ae2;
+}
+
+.input__btn:active {
+    transform: scale(0.8);
+    box-shadow: inset 0 0 5px black;
+}
+
+.todos-list {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.todo__box {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    background: #dcee62;
+    align-items: center;
+    min-width: 30%;
+    border-radius: 20px;
+    height: 30%;
+    transition: 2s;
+}
+
+.todo__content {
+    padding: 0 0.5rem;
+    transition: 2s;
+}
+
+.todo__icons > .icon {
+    padding: 0 0.5rem;
+    cursor: pointer;
+    margin: 0 0.3 rem;
+}
+
+.edit-input {
+    width: 100%;
+    position: relative;
+
+}
+
+.edit-input > input {
+    border: none;
+    padding: 0.5rem;
+    border-radius: 20px;  
+}
+
+.edit-input__btn {
+    position: absolute;
+    right: 0;
+    padding: 0.5rem;
+    border-radius: 50px;
+    background: var(--primaryColor);
+    color: white;
+    border: none;
+    transition: 0.2s;
+    box-shadow: inset 0 0 10px black;
+    cursor: pointer;
+}
+
+.edit-input > input:focus {
+    outline: none;
+}
+
+.completed {
+    text-decoration: line-through;
+}
