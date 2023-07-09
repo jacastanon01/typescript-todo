@@ -4,14 +4,14 @@ import {AiFillDelete, AiFillEdit, AiOutlineCheck} from "react-icons/ai"
 import { TodoType } from '../model';
 
 interface IconProps {
-    handleDelete: () => void;
+    //handleDelete: () => void;
     handleEdit: () => void;
-    handleComplete: () => void;
+    //handleComplete: () => void;
     todo: TodoType;
 }
 
-const TodoIcons = ({handleComplete, handleDelete, handleEdit, todo}: IconProps): ReactElement => {
-    const { state, dispatch } = useContext(TodoContext)
+const TodoIcons = ({ handleEdit, todo}: IconProps): ReactElement => {
+    const { dispatch } = useContext(TodoContext)
   return (
     <div className="todo__icons">
         <span className="icon" onClick={handleEdit}>

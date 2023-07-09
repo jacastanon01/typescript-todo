@@ -6,7 +6,7 @@ import { TodoContextProvider, TodoContext } from './context/TodosContext';
 
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string | number>("")
-  const [todosList, setTodosList] = useState<TodoType[]>([])
+  //const [todosList, setTodosList] = useState<TodoType[]>([])
   const { state, dispatch } = useContext(TodoContext)
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -31,7 +31,7 @@ const App: React.FC = () => {
       </span>
       <TodoContextProvider>
         <Input todo={todo} setTodo={setTodo} onSubmit={handleSubmit}/>
-        <TodosDisplay todos={todosList} setTodos={setTodosList} />
+        <TodosDisplay />
       </TodoContextProvider>
     </div>
   );

@@ -3,13 +3,13 @@ import { TodoType } from '../model';
 import { TodoContext } from '../context/TodosContext';
 
 interface PropsTypes {
-    todos: TodoType[];
+    //todos: TodoType[];
     todo: TodoType;
-    setTodos: React.Dispatch<React.SetStateAction<TodoType[]>>;
+    //setTodos: React.Dispatch<React.SetStateAction<TodoType[]>>;
     handleEdit: () => void;
 }
 
-const EditInput: React.FC<PropsTypes> = ({todo, todos, setTodos, handleEdit}: PropsTypes) => {
+const EditInput: React.FC<PropsTypes> = ({todo, handleEdit}: PropsTypes) => {
     const {dispatch} = useContext(TodoContext)
   return (
     <div className="edit-input">

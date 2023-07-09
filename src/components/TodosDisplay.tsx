@@ -4,26 +4,22 @@ import { TodoType } from '../model'
 import SingleTodo from './SingleTodo';
 import { TodoContext } from '../context/TodosContext';
 
-interface TodosProps {
-    todos: TodoType[]; 
-    setTodos: React.Dispatch<React.SetStateAction<TodoType[]>>;
+// interface TodosProps {
+//     todos: TodoType[]; 
+//     //setTodos: React.Dispatch<React.SetStateAction<TodoType[]>>;
 
-}
+// }
 
-const TodosDisplay: React.FC<TodosProps> = ({todos, setTodos}: TodosProps) => {
-    const { state, dispatch } = useContext(TodoContext)
+const TodosDisplay: React.FC = () => {
+    const { state } = useContext(TodoContext)
     return (
         <div className="todos-list">
             {state.todos.map(t => {
-            console.log(typeof(state))
-            return (
+                return (
                     <SingleTodo 
-                        key={t.id}
                         todo={t}
-                        todos={state.todos}
-                        setTodos={setTodos}
                     />
-            )
+                )
             })}
         </div>
     )
