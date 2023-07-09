@@ -1,5 +1,6 @@
-import React, { useRef } from 'react'
+import React, { useContext, useRef } from 'react'
 import "./styles.css"
+import { TodoContext } from '../context/TodosContext';
 
 interface PropTypes {
     todo: string | number;
@@ -8,10 +9,16 @@ interface PropTypes {
 }
 
 const Input = ({todo, setTodo, onSubmit}: PropTypes) => {
+    const { dispatch} = useContext(TodoContext)
     const inputRef = useRef<HTMLInputElement>(null)
     return (
         <form className="input" onSubmit={(e) => {
-            onSubmit(e)
+            e.preventDefault()
+            dispatch({
+                type: "ADD_TODO",
+                text: todo
+            })
+            setTodo("")
             inputRef.current?.blur()
         }}>
             <input 

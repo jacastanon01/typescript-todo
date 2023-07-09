@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { TodoType } from '../model';
+import { TodoContext } from '../context/TodosContext';
 
 interface PropsTypes {
     todos: TodoType[];
@@ -9,16 +10,16 @@ interface PropsTypes {
 }
 
 const EditInput: React.FC<PropsTypes> = ({todo, todos, setTodos, handleEdit}: PropsTypes) => {
+    const {dispatch} = useContext(TodoContext)
   return (
     <div className="edit-input">
-        <input type="text" min="3" onChange={(e) => 
-            setTodos(todos.map(p => p.id === todo.id ? 
-                {
-                    ...p, 
-                    text: e.target.value
-                } : p
-            ))
-        } />
+        <input type="text" min="3" onChange={(e) => {
+            dispatch({
+                type: "EDIT_TODO",
+                id: todo.id,
+                text: e.target.value
+            })
+        }} />
         <button className="edit-input__btn" onClick={handleEdit}>Done</button>
     </div>
   )
